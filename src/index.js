@@ -3,22 +3,23 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 
-import defaultExport, {anotherTempImport} from './js/temp.js'
-import {isMobileDevice} from './js/utils.js'
+import FormWizard from './js/wizardClass.js'
+import {animateCSSHelper} from './js/utils.js'
 
 // style
 import "./scss/index.scss"
-
-
-
-/* Vars
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 
 /* ON READY 
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 document.addEventListener("DOMContentLoaded", (e) => {
+	
+	const form = document.getElementById('form-wizard')
+
+	// init the form
+	const twoStepForm = new FormWizard(form)
+
 	
 	/* Events
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */

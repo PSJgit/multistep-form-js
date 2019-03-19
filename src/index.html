@@ -11,7 +11,29 @@
   </head>
   <body>
     <div id="root">
-      <h1>Boilerplate for js/babel/scss/webpack projects</h1>
+      
+      <form id='form-wizard'>
+        <div id='prog-bar'></div>
+
+        <fieldset id='s1' class='section'> 
+          <legend><p>Section One</p></legend>
+        </fieldset>
+
+        <fieldset id='s2' class='section'> 
+          <legend><p>Section Two</p></legend>
+        </fieldset>
+
+        <div id='results' class='section'> 
+          <p>Results</p>
+        </div>
+
+        <div id='nav'>
+          <button id='next'><p>Next</p></button>
+          <button id='prev'><p>Previous</p></button>
+          <button id='submit'><p>Submit</p></button>
+        </div>
+      </form>
+    
     </div>
     <script src="config.js"></script>
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
