@@ -1,0 +1,64 @@
+
+/* Font Declarations
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+       url('../fonts/opensans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'work_sansblack';
+    src: url('../fonts/worksans-black-webfont.woff2') format('woff2'),
+         url('../fonts/worksans-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Font sizing, Font family
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$fontFamily_primary : 'work_sansblack', 'arial';
+$fontFamily_secondary : 'open_sansregular', 'arial';
+
+$XL_min: 24px;
+$XL_max: 128px;
+
+$h1_min: 22px;
+$h1_max: 48px;
+
+$h2_min: 16px;
+$h2_max: 32px;
+
+$baseFontSize_min: 16px;    // set on html, body, button
+$baseFontSize_max: 24px;    // set on html, body, button
+
+
+/* Colors
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$bodyColor_primary: #F8F4E3;    // Linen
+$bodyColor_secondary: #A9D2D5;  // Pastel Blue
+$bodyColor_tertiary: #A3A5C3;   // Blue Bell
+
+$fontColor_primary: #303030;    // Off Black
+$fontColor_secondary: #FDFDFD;  // Off White
+$fontColor_tertiary: #000500;   // Registration Black
+
+$offWhite: #fdfdfd;             
+$offBlack: #303030;
+
+/* Responsive basics
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$small: 480px;
+$medium: 839px;
+$large: 1024px;
+$xLarge: 1280px;
+
+
+
