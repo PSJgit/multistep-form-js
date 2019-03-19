@@ -1,41 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<meta charset="UTF-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title>Boilerplate</title>
-    <meta name="description" content="Boilerplate for js/babel/scss/webpack projects">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Wizard</title>
     <meta name="author" content="Patrick Jones">
-  	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
   </head>
   <body>
     <div id="root">
-      
+
       <form id='form-wizard'>
+
         <div id='prog-bar'></div>
 
         <fieldset id='s1' class='section'> 
           <legend><p>Section One</p></legend>
+
+          <label for='first-name'>First Name:</label>
+          <input name='first-name' type='text' placeholder='' class='' required/>
+
+          <label for='last-name'>Last Name:</label>
+          <input name='last-name' type='text' placeholder='' class='' required/>
+
+          <label for='email'>Email:</label>
+          <input name='email' type='email' placeholder='' class='' required/>
+
+          <label for='phone'>Phone:</label>
+          <input name='phone' type='number' placeholder='' min='11' class=''/>
         </fieldset>
 
         <fieldset id='s2' class='section'> 
           <legend><p>Section Two</p></legend>
+
+          <label for='street-number'>Street number:</label>
+          <input name='street-number' type='number' placeholder='' class='' required/>
+
+          <label for='street-name'>Street name:</label>
+          <input name='street-name' type='text' placeholder='' class='' required/>
+
+          <label for='street-type'>Street Type:</label>
+          <select name='street-type' placeholder='' class='' required>
+            <option value='Cl'>Cl</option>
+            <option value='Ct'>Ct</option>
+            <option value='St'>St</option>
+            <option value='Pl'>Pl</option>
+            <option value='Ave'>Ave</option>
+          </select>
+
+
+          <label for='suburb'>Suburb:</label>
+          <input name='suburb' type='text' placeholder='' class='' required/>
+
+          <label for='postcode'>Postcode:</label>
+          <input name='postcode' type='number' placeholder='' class='' min='0800' max='7999' required/>
+
+
+
         </fieldset>
 
-        <div id='results' class='section'> 
+        <div id='results' class='section hidden-display'> 
           <p>Results</p>
         </div>
 
         <div id='nav'>
-          <button id='next'><p>Next</p></button>
-          <button id='prev'><p>Previous</p></button>
-          <button id='submit'><p>Submit</p></button>
+          <button id='next' class='nav-control'><p>Next</p></button>
+          <button id='prev' class='nav-control'><p>Previous<p></button>
+          <button id='submit' class='nav-control'><p>Submit</p></button>
         </div>
+
       </form>
-    
     </div>
-    <script src="config.js"></script>
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+

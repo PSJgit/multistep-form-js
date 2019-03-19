@@ -13,7 +13,7 @@ body {
   padding: 0 10px;
   width: 100%;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 5em auto;
 }
 
 #grid {
@@ -24,6 +24,14 @@ body {
   align-items: center;
 }
 
+fieldset {
+  width: 500px;
+  margin: 0 auto;
+  label, input, select {
+    display: block;
+    width: 100%;
+  }
+}
 
 
 
