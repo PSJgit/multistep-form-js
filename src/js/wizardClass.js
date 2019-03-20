@@ -21,10 +21,10 @@ class FormWizard {
 		this.prevBtn = this.controls.querySelector('#prev')
 		this.nextBtn = this.controls.querySelector('#next')
 		this.submitBtn = this.controls.querySelector('#submit')
-
 		this.results = this.form.querySelector('#results')
-		this.complete = false
+		this.hideClassStr = 'hidden-display' 
 
+		this.complete = false
 		this.index = 0
 		// run the instance
 		this.init()
@@ -45,7 +45,7 @@ class FormWizard {
 			this.index--
 			this.moveTo(this.currentSection, this.sections[this.index])
 		} else if (e.target.id === 'submit') {
-			console.warn('submit event')
+			this.completeForm()
 		}
 
 		// show or hide the controls
@@ -61,23 +61,21 @@ class FormWizard {
 	hideShowControls() {
 		// show/hide prev/next buttons
 		if (this.index === 0) {
-			this.prevBtn.classList.add('hidden-display')
+			this.prevBtn.classList.add(this.hideClassStr)
 		} else if (this.index === this.sections.length-1) {
-			this.submitBtn.classList.remove('hidden-display')
-			this.nextBtn.classList.add('hidden-display')
+			this.submitBtn.classList.remove(this.hideClassStr)
+			this.nextBtn.classList.add(this.hideClassStr)
 		} else {
-			this.prevBtn.classList.remove('hidden-display')
-			this.nextBtn.classList.remove('hidden-display')	
-			this.submitBtn.classList.add('hidden-display')
+			this.prevBtn.classList.remove(this.hideClassStr)
+			this.nextBtn.classList.remove(this.hideClassStr)	
+			this.submitBtn.classList.add(this.hideClassStr)
 		}
-
 	}
 
 	moveTo(currentSection, nextSection){
-		console.log(currentSection, nextSection)
 		// update the current and nextSection sections visibility
- 		currentSection.classList.add('hidden-display')
- 		nextSection.classList.remove('hidden-display')
+ 		currentSection.classList.add(this.hideClassStr)
+ 		nextSection.classList.remove(this.hideClassStr)
 	}
 
 	validate(currentSection) {
@@ -87,9 +85,8 @@ class FormWizard {
 		// get the currentSection sections inputs through the inputs
 		let inputs = currentSection.querySelectorAll('input, select')
 		inputs = [].slice.call(inputs)
-		console.warn(inputs)
-		inputs.forEach( (elem, index) => {
 
+		inputs.forEach( (elem, index) => {
 			elem.oninvalid = () => {
 				if (elem.hasErrorDiv === undefined) {
 					elem.hasErrorDiv = true
@@ -116,10 +113,14 @@ class FormWizard {
 		
 		allInputs.forEach( (elem) => {
 			let content = `<p>${elem.value}</p>`
-			console.warn(elem.value)
 			this.results.insertAdjacentHTML('beforeend', content)
 		}) 
 	}
+	
+	completeForm() {
+ 		this.controls.classList.add(this.hideClass)
+ 		this.results.innerHTML = '<p>Form complete!</p>'
+ 	}
 
 	events(){
 		this.controls.addEventListener('click', this.onControlsClick.bind(this))
