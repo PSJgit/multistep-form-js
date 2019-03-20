@@ -23,6 +23,7 @@ class FormWizard {
 		this.submitBtn = this.controls.querySelector('#submit')
 
 		this.results = this.form.querySelector('#results')
+		this.complete = false
 
 		this.index = 0
 		// run the instance
@@ -49,6 +50,12 @@ class FormWizard {
 
 		// show or hide the controls
 		this.hideShowControls()
+
+		// if we're done, display the data
+		if (this.index === this.sections.length-1 && this.complete === false) {
+			this.complete = true
+			this.displayInputData()
+		}
 	}
 
 	hideShowControls() {
@@ -103,7 +110,15 @@ class FormWizard {
 	}
 
 	displayInputData() {
+		let allInputs = this.form.querySelectorAll('input, select')
+		allInputs = [].slice.call(allInputs)
 
+		
+		allInputs.forEach( (elem) => {
+			let content = `<p>${elem.value}</p>`
+			console.warn(elem.value)
+			this.results.insertAdjacentHTML('beforeend', content)
+		}) 
 	}
 
 	events(){
