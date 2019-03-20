@@ -27,6 +27,7 @@ body {
 #form-wizard {
   width: 500px;
   margin: 0 auto;
+
   label, input, select {
     display: block;
     width: 100%;
@@ -36,7 +37,17 @@ body {
     button {
       cursor: pointer;  
     }
-    
+  }
+
+  #prog-bar { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    background: $fontColor_primary;
+    height: 0.5em;
+
+    transition: width 1s ease;
   }
 }
 

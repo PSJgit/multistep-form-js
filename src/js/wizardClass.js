@@ -22,6 +22,7 @@ class FormWizard {
 		this.nextBtn = this.controls.querySelector('#next')
 		this.submitBtn = this.controls.querySelector('#submit')
 		this.results = this.form.querySelector('#results')
+		this.progBar = this.form.querySelector('#prog-bar')
 		this.hideClassStr = 'hidden-display' 
 
 		this.complete = false
@@ -40,12 +41,14 @@ class FormWizard {
 		// check which button is clicked, update index, then call move func
 		if (e.target.id === 'next' && this.index !== this.sections.length-1 && this.validate(this.currentSection)) {
 			this.index++
+			this.updateProgress()
 			this.moveTo(this.currentSection, this.sections[this.index])
 		} else if (e.target.id === 'prev' && this.index !== 0) {
 			this.index--
 			this.moveTo(this.currentSection, this.sections[this.index])
 		} else if (e.target.id === 'submit') {
 			this.completeForm()
+			this.updateProgress(100)
 		}
 
 		// show or hide the controls
@@ -119,6 +122,12 @@ class FormWizard {
 		}) 
 	}
 	
+	updateProgress(max) {
+		let allInputs = this.form.getElementsByTagName('input')
+		let completed = this.index / this.sections.length * 100
+		this.progBar.setAttribute('style', `width: ${max || completed}%`)
+	}
+
 	completeForm() {
  		this.controls.classList.add(this.hideClassStr)
  		this.results.innerHTML = '<p>Form complete!</p>'

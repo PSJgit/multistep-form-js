@@ -3,7 +3,6 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 import FormWizard from './js/wizardClass.js'
-import {animateCSSHelper} from './js/utils.js'
 
 // style
 import "./scss/index.scss"
