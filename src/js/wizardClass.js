@@ -118,7 +118,7 @@ class FormWizard {
 	}
 	
 	completeForm() {
- 		this.controls.classList.add(this.hideClass)
+ 		this.controls.classList.add(this.hideClassStr)
  		this.results.innerHTML = '<p>Form complete!</p>'
  	}
 
