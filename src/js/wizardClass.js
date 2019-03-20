@@ -37,7 +37,7 @@ class FormWizard {
 		this.currentSection = this.sections[this.index]
 
 		// check which button is clicked, update index, then call move func
-		if (e.target.id === 'next' && this.index !== this.sections.length-1) {
+		if (e.target.id === 'next' && this.index !== this.sections.length-1 && this.validate(this.currentSection)) {
 			this.index++
 			this.moveTo(this.currentSection, this.sections[this.index])
 		} else if (e.target.id === 'prev' && this.index !== 0) {
@@ -71,6 +71,35 @@ class FormWizard {
 		// update the current and nextSection sections visibility
  		currentSection.classList.add('hidden-display')
  		nextSection.classList.remove('hidden-display')
+	}
+
+	validate(currentSection) {
+		
+		let validationResult = true
+
+		// get the currentSection sections inputs through the inputs
+		let inputs = currentSection.querySelectorAll('input, select')
+		inputs = [].slice.call(inputs)
+		console.warn(inputs)
+		inputs.forEach( (elem, index) => {
+
+			elem.oninvalid = () => {
+				if (elem.hasErrorDiv === undefined) {
+					elem.hasErrorDiv = true
+					elem.insertAdjacentHTML('afterend', '<div class="error"></div>')
+				}
+				elem.classList.add('invalid-input')
+				elem.nextSibling.textContent = elem.validationMessage
+				validationResult = false
+			}
+
+      elem.nextSibling.textContent = ''
+      elem.classList.remove('invalid-input')
+      elem.checkValidity()
+
+		})
+
+		return validationResult
 	}
 
 	displayInputData() {
