@@ -84,15 +84,15 @@ class FormWizard {
 			elem.oninvalid = () => {
 				if (elem.hasErrorDiv === undefined) {
 					elem.hasErrorDiv = true
-					elem.insertAdjacentHTML('afterend', '<div class="error"></div>')
+					elem.insertAdjacentHTML('afterend', '<div class="error "></div>')
 				}
-				elem.classList.add('invalid-input')
+
 				elem.nextSibling.textContent = elem.validationMessage
+
 				validationResult = false
 			}
-
+			
       elem.nextSibling.textContent = ''
-      elem.classList.remove('invalid-input')
       elem.checkValidity()
 
 		})
@@ -121,7 +121,7 @@ class FormWizard {
 
 	completeForm() {
  		this.controls.classList.add(this.hideClassStr)
- 		this.results.innerHTML = '<p>Form complete!</p>'
+ 		this.results.innerHTML = '<p class="center">Form complete!</p>'
  	}
 
 	events(){

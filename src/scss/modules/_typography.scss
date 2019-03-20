@@ -10,10 +10,11 @@ html, body, button {
 /* General font styling
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, legend, .heading {
   font-family: $fontFamily_secondary;
-  color: $fontColor_primary;
+  color: $offBlack;
   text-transform: uppercase;
+  font-weight: bold;
   line-height: 1;
   margin: 0.5em 0;
 }
@@ -22,9 +23,12 @@ h1 {
   @include fluid-type($small, $xLarge, $h1_min, $h1_max);
 }
 
-p {
-  color: $fontColor_primary;
+p, label, .error {
+  color: $offBlack;
   font-family: $fontFamily_secondary;
   line-height: 1.4;
 }
 
+p.center {
+  text-align: center;
+}
