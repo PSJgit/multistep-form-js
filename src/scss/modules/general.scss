@@ -19,9 +19,11 @@ body {
 #form-wizard {
   position: relative;
   width: 600px;
+  height: 100%;
   margin: 0 auto;
   background: $offWhite;
   padding: $xl-padding;
+  transition: all 0.2s ease-in-out;
 
   label, input, select {
     display: block;

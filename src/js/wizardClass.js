@@ -38,6 +38,7 @@ class FormWizard {
 			this.index--
 			this.moveTo(this.currentSection, this.sections[this.index])
 		} else if (e.target.id === 'submit') {
+			this.complete = true
 			this.completeForm()
 			this.updateProgress(100)
 		}
@@ -46,8 +47,7 @@ class FormWizard {
 		this.hideShowControls()
 
 		// if we're done, display the data
-		if (this.index === this.sections.length-1 && this.complete === false) {
-			this.complete = true
+		if (this.index === this.sections.length-1) {
 			this.displayInputData()
 		}
 	}
@@ -101,16 +101,24 @@ class FormWizard {
 	}
 
 	displayInputData() {
-		let allInputs = this.form.querySelectorAll('input, select')
-		allInputs = [].slice.call(allInputs)
 
-		
-		allInputs.forEach( (elem) => {
-			console.log(elem.name)
-			let name = elem.name.split('-').join(' ').toUpperCase()
-			let content = `<p>${name}: ${elem.value}</p>`
-			this.results.insertAdjacentHTML('beforeend', content)
-		}) 
+		if (!this.complete) {
+
+			// clear any previous 
+			this.results.innerHTML = ''
+
+			// get latest inputs
+			let allInputs = this.form.querySelectorAll('input, select')
+			allInputs = [].slice.call(allInputs)
+
+			// show them
+			allInputs.forEach( (elem) => {
+				console.log(elem.name)
+				let name = elem.name.split('-').join(' ').toUpperCase()
+				let content = `<p>${name}: ${elem.value}</p>`
+				this.results.insertAdjacentHTML('beforeend', content)
+			}) 
+		}
 	}
 	
 	updateProgress(max) {
