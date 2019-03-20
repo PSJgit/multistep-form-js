@@ -16,7 +16,13 @@ class FormWizard {
 		this.form = form
 		this.form.noValidate = true
 		this.sections = sections
+
 		this.controls = controls
+		this.prevBtn = this.controls.querySelector('#prev')
+		this.nextBtn = this.controls.querySelector('#next')
+		this.submitBtn = this.controls.querySelector('#submit')
+
+		this.results = this.form.querySelector('#results')
 
 		this.index = 0
 		// run the instance
@@ -37,7 +43,27 @@ class FormWizard {
 		} else if (e.target.id === 'prev' && this.index !== 0) {
 			this.index--
 			this.moveTo(this.currentSection, this.sections[this.index])
+		} else if (e.target.id === 'submit') {
+			console.warn('submit event')
 		}
+
+		// show or hide the controls
+		this.hideShowControls()
+	}
+
+	hideShowControls() {
+		// show/hide prev/next buttons
+		if (this.index === 0) {
+			this.prevBtn.classList.add('hidden-display')
+		} else if (this.index === this.sections.length-1) {
+			this.submitBtn.classList.remove('hidden-display')
+			this.nextBtn.classList.add('hidden-display')
+		} else {
+			this.prevBtn.classList.remove('hidden-display')
+			this.nextBtn.classList.remove('hidden-display')	
+			this.submitBtn.classList.add('hidden-display')
+		}
+
 	}
 
 	moveTo(currentSection, nextSection){
@@ -45,6 +71,10 @@ class FormWizard {
 		// update the current and nextSection sections visibility
  		currentSection.classList.add('hidden-display')
  		nextSection.classList.remove('hidden-display')
+	}
+
+	displayInputData() {
+
 	}
 
 	events(){
