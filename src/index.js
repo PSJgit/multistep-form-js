@@ -2,7 +2,6 @@
 /* Imports
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
 import FormWizard from './js/wizardClass.js'
 import {animateCSSHelper} from './js/utils.js'
 
@@ -16,7 +15,6 @@ import "./scss/index.scss"
 document.addEventListener("DOMContentLoaded", (e) => {
 	
 	const form = document.getElementById('form-wizard')
-
 	const sections = [].slice.call(document.querySelectorAll('.section'))
 	const controls = document.getElementById('controls')
 

@@ -18,13 +18,33 @@ class FormWizard {
 		this.sections = sections
 		this.controls = controls
 
+		this.index = 0
 		// run the instance
 		this.init()
 	}
 
 	onControlsClick(e) {
+		// stop expected form button behaviour
 		e.preventDefault()
-		console.log('controls clicked', e.target.id)
+
+		// update current section
+		this.currentSection = this.sections[this.index]
+
+		// check which button is clicked, update index, then call move func
+		if (e.target.id === 'next' && this.index !== this.sections.length-1) {
+			this.index++
+			this.moveTo(this.currentSection, this.sections[this.index])
+		} else if (e.target.id === 'prev' && this.index !== 0) {
+			this.index--
+			this.moveTo(this.currentSection, this.sections[this.index])
+		}
+	}
+
+	moveTo(currentSection, nextSection){
+		console.log(currentSection, nextSection)
+		// update the current and nextSection sections visibility
+ 		currentSection.classList.add('hidden-display')
+ 		nextSection.classList.remove('hidden-display')
 	}
 
 	events(){
