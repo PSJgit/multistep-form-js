@@ -17,10 +17,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	
 	const form = document.getElementById('form-wizard')
 
-	// init the form
-	const twoStepForm = new FormWizard(form)
+	const sections = [].slice.call(document.querySelectorAll('.section'))
+	const controls = document.getElementById('nav')
 
-	
+	// init the form
+	const twoStepForm = new FormWizard(form, sections, controls)
+
+
 	/* Events
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 

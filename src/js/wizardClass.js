@@ -12,9 +12,11 @@
 */
 
 class FormWizard {
-	constructor(form) {
+	constructor(form, sections, controls) {
 		this.form = form
-		console.warn('constructor called')
+		this.sections = sections
+		this.controls = controls
+		console.warn('constructor called with', this.form, this.sections, this.controls)
 
 		// run the instance
 		this.init()
