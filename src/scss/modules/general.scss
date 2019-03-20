@@ -3,29 +3,93 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 body {
-  background: $bodyColor_primary;
+  background: #323446;
 }
 
 /* Layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 #root {
-  padding: 0 10px;
+  padding: 0 $sm-padding;
   width: 100%;
   max-width: 1280px;
+  margin: $xl-margin auto;
+}
+
+#form-wizard {
+  position: relative;
+  width: 600px;
+  height: 100%;
   margin: 0 auto;
+  background: $offWhite;
+  padding: $xl-padding;
+  transition: all 0.2s ease-in-out;
+
+  label, input, select {
+    display: block;
+    width: 100%;
+    margin-top: $sm-margin;
+  }
+
+  .error {
+    font-size: 70%;
+    color: $offWhite;
+    animation: slide-down 0.4s ease;
+    color:$fail;
+  }
+
+  #controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $med-margin;
+
+    button {
+      cursor: pointer; 
+      padding: $sm-padding;
+      background: darken($highlight, 30%);
+      transition: all 0.2s ease;
+      p {
+        color: $offBlack;
+        font-size: 70%;
+      }
+      &:hover {
+        background: $highlight;
+        transform: translateY(-0.2em);
+      }
+    }
+  }
+
+  #prog-bar { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    background: darken($highlight, 30%);
+    height: 0.5em;
+    transition: width 1s ease;
+  }
+
+  #results {
+    p {
+      margin-top: $sm-margin;
+    }
+  }
 }
 
-#grid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 60vh;
-  grid-gap: 5px;
-  align-items: center;
+
+
+
+
+@keyframes slide-down {
+  0% {
+      opacity: 0;
+      transform: translateY(-0.5em);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }
-
-
-
 
 
 
