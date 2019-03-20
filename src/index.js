@@ -20,9 +20,4 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	// init the form
 	const twoStepForm = new FormWizard(form, sections, controls)
 
-
-	/* Events
-	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-
 });
