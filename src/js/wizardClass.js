@@ -14,16 +14,25 @@
 class FormWizard {
 	constructor(form, sections, controls) {
 		this.form = form
+		this.form.noValidate = true
 		this.sections = sections
 		this.controls = controls
-		console.warn('constructor called with', this.form, this.sections, this.controls)
 
 		// run the instance
 		this.init()
 	}
 
+	onControlsClick(e) {
+		e.preventDefault()
+		console.log('controls clicked', e.target.id)
+	}
+
+	events(){
+		this.controls.addEventListener('click', this.onControlsClick.bind(this))
+	}
+
 	init() {
-		console.warn('init called')
+		this.events()
 	}
 }
 

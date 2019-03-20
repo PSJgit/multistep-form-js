@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	const form = document.getElementById('form-wizard')
 
 	const sections = [].slice.call(document.querySelectorAll('.section'))
-	const controls = document.getElementById('nav')
+	const controls = document.getElementById('controls')
 
 	// init the form
 	const twoStepForm = new FormWizard(form, sections, controls)

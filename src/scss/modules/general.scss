@@ -31,7 +31,15 @@ body {
     display: block;
     width: 100%;
   }
+
+  #controls {
+    button {
+      cursor: pointer;  
+    }
+    
+  }
 }
+
 
 
 
