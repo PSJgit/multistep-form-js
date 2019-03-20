@@ -112,7 +112,9 @@ class FormWizard {
 
 		
 		allInputs.forEach( (elem) => {
-			let content = `<p>${elem.value}</p>`
+			console.log(elem.name)
+			let name = elem.name.split('-').join(' ').toUpperCase()
+			let content = `<p>${name}: ${elem.value}</p>`
 			this.results.insertAdjacentHTML('beforeend', content)
 		}) 
 	}
